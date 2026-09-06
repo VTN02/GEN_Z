@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
-import { BRAND, STUDIO } from "@/lib/brand";
+import { BRAND } from "@/lib/brand";
 
 export const Footer = () => (
   <footer className="border-t border-border/60 mt-24 bg-gradient-to-b from-transparent to-black">
@@ -67,15 +67,7 @@ export const Footer = () => (
           </Link>
         </div>
         <p className="text-center sm:text-right text-muted-foreground">
-          Website developed by{" "}
-          <a
-            href={STUDIO.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-foreground/90 underline-offset-4 transition-colors duration-200 ease-out hover:text-primary hover:underline"
-          >
-            {STUDIO.name}
-          </a>
+          {BRAND.tagline}
         </p>
       </div>
     </div>

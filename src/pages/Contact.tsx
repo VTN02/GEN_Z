@@ -10,7 +10,7 @@ import { toast } from "sonner";
 const contactCards = [
   { 
     icon: MapPin, 
-    title: "Visit Studio", 
+    title: "Visit Store", 
     text: BRAND.address, 
     desc: "Trincomalee Main St.", 
     href: undefined 
@@ -265,7 +265,7 @@ const Contact = () => {
               {/* Coordinates hud sticker */}
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between backdrop-blur-md bg-black/55 border border-border/60 p-2.5 rounded-xl text-[10px] tracking-widest uppercase font-mono text-zinc-400 select-none">
                 <span className="font-semibold text-white flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5 text-primary" /> TRINCO STUDIO
+                  <MapPin className="h-3.5 w-3.5 text-primary" /> TRINCO STORE
                 </span>
                 <span>8.5713° N, 81.2335° E</span>
               </div>

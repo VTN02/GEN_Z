@@ -1,16 +1,10 @@
-// Shop + studio config. WHATSAPP_NUMBER: digits only, country code first (no +).
-export const STUDIO = {
-  name: "AxisX Studio",
-  url: "https://axisxstudio.com",
-  domain: "axisxstudio.com",
-} as const;
-
+// Shop config. WHATSAPP_NUMBER: digits only, country code first (no +).
 export const BRAND = {
   name: "GEN-Z",
   fullName: "GEN-Z Trincomalee",
   tagline: "The Happiness of Men & Boys",
   city: "Trincomalee, Sri Lanka",
-  email: "info@axisxstudio.com",
+  email: "info@genztrinco.com",
   phone: "077 453 4056",
   phoneTel: "+94774534056",
   address: "Main Street, Trincomalee",
