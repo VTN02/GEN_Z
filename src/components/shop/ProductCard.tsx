@@ -59,8 +59,9 @@ export const ProductCard = ({ product, index = 0 }: Props) => {
           <img
             src={image}
             alt=""
-            loading="lazy"
-            className="product-card-img absolute inset-0 h-full w-full object-cover"
+            loading={index < 4 ? "eager" : "lazy"}
+            decoding="async"
+            className="product-card-img absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
           />
           {hasDiscount && (
             <motion.span

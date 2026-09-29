@@ -15,10 +15,10 @@ import {
   EASE_OUT_EXPO,
 } from "@/lib/motion";
 
-// Hero Images
+// Hero Images (Ultra-optimized WebP & JPG)
 import heroImg from "@/assets/hero.jpg";
-import streetwearHero1 from "@/assets/streetwear_hero1.png";
-import streetwearHero2 from "@/assets/streetwear_hero2.png";
+import streetwearHero1 from "@/assets/streetwear_hero1.webp";
+import streetwearHero2 from "@/assets/streetwear_hero2.webp";
 
 const Index = () => {
   const { data: featured = [] } = useProducts({ featured: true, limit: 8 });
@@ -28,6 +28,14 @@ const Index = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const heroImages = [heroImg, streetwearHero1, streetwearHero2];
+
+  // Preload and decode all hero images into browser memory immediately
+  useEffect(() => {
+    heroImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -70,6 +78,8 @@ const Index = () => {
               key={currentImageIndex}
               src={heroImages[currentImageIndex]}
               alt="GEN-Z streetwear hero"
+              loading="eager"
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover object-center sm:object-top"
               initial={{ opacity: 0, scale: 1.12 }}
               animate={{ opacity: 1, scale: 1.0 }}

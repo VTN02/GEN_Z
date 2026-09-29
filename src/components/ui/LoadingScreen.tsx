@@ -1,20 +1,30 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import heroImg from "@/assets/hero.jpg";
+import streetwearHero1 from "@/assets/streetwear_hero1.webp";
+import streetwearHero2 from "@/assets/streetwear_hero2.webp";
 
 export const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Actively preload core hero images and logo in parallel
+    const criticalAssets = [heroImg, streetwearHero1, streetwearHero2, "/logo.png"];
+    criticalAssets.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          setTimeout(onComplete, 800); // Slightly longer delay to show 100% and finish spin
+          setTimeout(onComplete, 350);
           return 100;
         }
-        return prev + Math.floor(Math.random() * 15) + 5;
+        return prev + Math.floor(Math.random() * 14) + 8;
       });
-    }, 120);
+    }, 45);
 
     return () => clearInterval(timer);
   }, [onComplete]);
